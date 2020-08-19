@@ -23,11 +23,14 @@
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
             );
 
+            echo 'Database name is ' . DB_NAME . '<br>';
+
             // Create New PDO Instance
             try{
-
-            } catch(PDOException $e){
-                $this->error = $e->getMessage();
+                $this->dbh = new PDO($dsn, $this->user, $this->password, $options);
+            } catch(PDOException $exception){
+                echo 'Caught an exception...<br>';
+                $this->error = $exception->getMessage();
                 echo $this->error;
             }
 

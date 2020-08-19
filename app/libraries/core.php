@@ -43,7 +43,7 @@
                 // Get parameters from URL
                 $this->params = $currentUrl != [0=>'nothing'] ? array_values($currentUrl) : [];
 
-                echo 'The current parameters are ' . $this->params[0] . '<br>';
+                echo 'The current parameters are ' . $this->params . '<br>';
 
                 // Call a callback function with an array of parameters
                 call_user_func_array([$this->currentController, $this->currentMethod], $this->params);
