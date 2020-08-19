@@ -9,11 +9,18 @@
             protected $params = [];
 
             public function __construct(){
-                $this->getUrl();
+                // print_r($this->getUrl());
+
+                $currentUrl = $this->getUrl();
+
             }
 
             public function getUrl(){
-                 $currentUrl = $_GET['url'];
-                 echo $currentUrl;
+                if(isset($_GET['url'])){
+                    $currentUrl = rtrim($_GET['url'],'/');
+                    $currentUrl = filter_var($currentUrl, FILTER_SANITIZE_URL);
+                    $currentUrl = explode('/', $currentUrl);
+                    return $currentUrl;
+                } 
             }
     }
