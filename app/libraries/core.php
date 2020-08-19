@@ -29,6 +29,7 @@
 
                 // Check to see if second part of URL exists
                 if(isset($currentUrl[1])){
+                    echo '<br> Changing current method <br>';
                    // Check to see if method is part of the controller
                    if(method_exists($this->currentController, $currentUrl[1])){
                         $this->currentMethod = $currentUrl[1];
@@ -38,7 +39,7 @@
                 }
 
                 echo 'The current method is ' . $this->currentMethod . '<br>';
-                echo 'The current URL is ' . $this->currentUrl . '<br>';
+                echo 'The current URL is ' . $currentUrl . '<br>';
                 // Get parameters from URL
                 $this->params = $currentUrl != [0=>'nothing'] ? array_values($currentUrl) : [];
 
@@ -55,6 +56,7 @@
                     $currentUrl = explode('/', $currentUrl);
                     return $currentUrl;
                 } else {
+                    echo 'Did not find any URL so returning nothing...';
                     return [0=>'nothing'];
                 }
             }
