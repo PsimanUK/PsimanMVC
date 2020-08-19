@@ -5,13 +5,10 @@
         }
 
         public function index(){
-            echo 'Using the index method <br>';
+            $this->view('pages/index');
         }
 
-        public function about($id){
-            echo 'Using the about method <br>';
-            if($id){
-                echo 'And the id is ' . $id . '<br>';
-            }
+        public function about(){
+            $this->view('pages/about');
         }
     }
